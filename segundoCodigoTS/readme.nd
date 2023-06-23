@@ -1,0 +1,14 @@
+# Criar arquivo de configuração de TS
+npx tsc --init
+
+# configurações no arquivo tsconfig.json
+"target":"es6",
+"module":"commonjs",
+"sourceMap": true,
+"outDir":"./build",
+"rootDir": "./src",
+"removeComments": true,
+"noImplicitAny": true,
+
+# Adicionar script no package.json
+"npx tsc && node ./build/index.js"
