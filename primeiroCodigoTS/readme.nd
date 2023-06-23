@@ -1,0 +1,11 @@
+# verificar versão do node instalado
+node -v
+
+# Gerar arquivo package.json
+npm init -y
+
+# Instalar o TypeScript
+npm i -g typescript
+
+# Transpilar o codigo TypeScript
+npx tsc index.ts 
