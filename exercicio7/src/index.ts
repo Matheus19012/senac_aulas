@@ -5,7 +5,9 @@
 function apresentation(name: string, dateBirth: string): void {
    const nameApresentation: string = name;
    let splitDate = dateBirth.split('/')
-   let phrase = console.log(`Olá me chamo ${nameApresentation}, nasci no dia ${splitDate[0]} do mes ${splitDate[1]} do ano de ${splitDate[2]}`);
+   let phrase = console.log(`Olá me chamo ${nameApresentation}, 
+   nasci no dia ${splitDate[0]} do mes ${splitDate[1]}
+    do ano de ${splitDate[2]}`);
     
     return phrase;
 }
