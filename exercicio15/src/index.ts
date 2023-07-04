@@ -1,7 +1,11 @@
-// const birthDate = prompt("Digite sua data de nascimento:");
-// const rgDateEmission = prompt("Digite a data de emissão de seu RG:");
+function validateRenovation(dateBirth: string, dateIssue: string): any {
+    let birth = new Date(dateBirth);
+    let timeDiff = birth.getFullYear();
+    let month = birth.getMonth;
+    let day = birth.getDay;
+    let currentYear = birth.getFullYear();
+    return timeDiff;   
+}
 
-// function getRg(birthDate: string, rgDateEmission: string): boolean {
 
-//     if ()
-// }
+console.log(validateRenovation("24/04/1993", "07/11/2015"));
