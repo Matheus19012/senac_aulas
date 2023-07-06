@@ -1,29 +1,45 @@
 "use strict";
-function convertToRoman(year) {
-    const values = [
-        { symbol: 'M', value: 1000 },
-        { symbol: 'CM', value: 900 },
-        { symbol: 'D', value: 500 },
-        { symbol: 'CD', value: 400 },
-        { symbol: 'C', value: 100 },
-        { symbol: 'XC', value: 90 },
-        { symbol: 'L', value: 50 },
-        { symbol: 'XL', value: 40 },
-        { symbol: 'C', value: 10 },
-        { symbol: 'IX', value: 9 },
-        { symbol: 'V', value: 5 },
-        { symbol: 'IV', value: 4 },
-        { symbol: 'I', value: 1 }
-    ];
-    let result = " ";
-    for (const { symbol, value } of values) {
-        while (year >= value) {
-            result += symbol;
-            year
-                -= value;
-        }
+function cpfValidation(cpf) {
+    if (typeof cpf !== 'string') {
+        return false;
     }
-    return result;
+    let splitCpf = cpf.replace(/[\s.-]*/igm, '');
+    if (!splitCpf ||
+        splitCpf.length !== 11 ||
+        splitCpf === "00000000000" ||
+        splitCpf === "11111111111" ||
+        splitCpf === "22222222222" ||
+        splitCpf === "33333333333" ||
+        splitCpf === "44444444444" ||
+        splitCpf === "55555555555" ||
+        splitCpf === "66666666666" ||
+        splitCpf === "77777777777" ||
+        splitCpf === "88888888888" ||
+        splitCpf === "99999999999") {
+        return false;
+    }
+    let sum = 0;
+    let restForFirstDv;
+    for (let i = 1; i <= 9; i++) {
+        sum = sum + parseInt(splitCpf.substring(i - 1, i)) * (11 - i);
+    }
+    restForFirstDv = 11 - (sum % 11);
+    if (restForFirstDv >= 10) {
+        restForFirstDv = 0;
+    }
+    sum = 0;
+    let restForSecondDv;
+    for (let i = 1; i <= 10; i++) {
+        sum = sum + parseInt(splitCpf.substring(i - 1, i)) * (12 - i);
+    }
+    restForSecondDv = 11 - (sum % 11);
+    if (restForSecondDv >= 10) {
+        restForSecondDv = 0;
+    }
+    return console.log(true);
 }
-console.log(convertToRoman(2007));
+let result = cpfValidation('059.015.440-00');
+if (!result) {
+    console.log("CPF invalido");
+}
 //# sourceMappingURL=index.js.map
